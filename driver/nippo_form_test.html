@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap5_beta3 css -->
+    <link rel="stylesheet" href="../css/bootstrap.css">
+
+</head>
+<body>
+
+
+<form method="post" action="post_test.php">
+
+    <button id="add_row" type="button">行追加</button>
+    
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>出発</th>
+            <th>到着</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" name="departure[0]" placeholder="出発地を入力"></td>
+            <td><input type="text" name="arrival[0]" placeholder="到着地を入力"></td>
+          </tr>
+        </tbody>
+      </table>
+      <input type="hidden" name="row_length" value="1">
+      <input type="submit" name="send" value="送信">
+</form>
+
+    <!-- Jquery Script -->
+    <script src="../js/jquery-3.6.0.js"></script>
+
+    <!-- Bootstrap5_beta3 Script -->
+    <script src="./js/bootstrap.bundle.js"></script>
+
+    <script>
+        $(document).on('click', '#add_row', function(e) {
+            var tr_row = '' +
+            '<tr>' +
+                '<td><input type="text" name="departure" placeholder="出発地を入力"></td>' +
+                '<td><input type="text" name="arrival" placeholder="到着地を入力"></td>' +
+            '</tr>';// 挿入する行のテンプレート
+            var row_cnt = $("table tbody").children().length;// 現在のDOMで表示されているtrの数
+            $(':hidden[name="row_length"]').val(parseInt(row_cnt) + 1);// input type=hiddenに格納されている行数を変更
+            $(tr_row).appendTo($('table > tbody'));// tbody末尾にテンプレートを挿入
+            $('table > tbody > tr:last > td > input').each(function() {
+                var base_name = $(this).attr('name');
+                $(this).attr('name', base_name + '[' + row_cnt + ']');
+            });// input name部分を変更
+        });
+    </script>
+</body>
+</html>

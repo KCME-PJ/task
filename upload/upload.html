@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap5 css -->
+    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
+    <!-- Dropzone css -->
+    <link href="../css/dropzone.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="container mt-3">
+        <form class="row g-3 needs-validation" id="upload" action="upload_form.php" method="POST" novalidate>
+            <div class="col-md-4">
+                <label for="validation01" class="form-label">現場名</label>
+                <select class="form-select" id="site_name" name="site_name" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option value="1">現場A</option>
+                    <option value="2">現場B</option>
+                </select>
+                <div class="invalid-feedback">
+                    現場名を選択してください。
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="validation02" class="form-label">写真種別</label>
+                <select class="form-select" id="img_type" name="img_type" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option value="2D">2D（通常の写真）</option>
+                    <option value="360">360度写真</option>
+                </select>
+                <div class="invalid-feedback">
+                    写真の種別を選択してください。(2D or 360)
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="validation03" class="form-label">内容</label>
+                <select class="form-select" id="contents" name="contents" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option value="現地調査">現地調査</option>
+                    <option value="安パト">安パト</option>
+                    <option value="試験">試験</option>
+                </select>
+                <div class="invalid-feedback">
+                    写真の内容を選択してください。
+                </div>
+            </div>
+            <div class='col-12 mt-3'>
+                <div class="dropzone" id="myDropzone"></div>
+            </div>
+            <div class='mt-3'>
+                <button type="submit" class='btn btn-primary' id='uploadfiles'>送信</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Script -->
+    <script>
+        $(function () {
+            //submitされる時
+            $('#upload').submit(function () {
+                // text1が入力されていなければ
+                if (myDropzone.getAcceptedFiles().length > 0) {
+                    return true;
+                } else {
+                    // alertを出して
+                    alert("何か入力してください。");
+                    // submitを止める
+                    return false;
+                }
+            });
+        });
+    </script>
+
+
+
+
+
+    <script src="../js/bootstrap.bundle.js" type="text/javascript"></script>
+    <script src="../js/jquery-3.6.0.js" type="text/javascript"></script>
+    <script src="../js/dropzone.js" type="text/javascript"></script>
+
+    <!-- validation -->
+    <script src="../js/validation.js" type="text/javascript"></script>
+
+    <!-- Dropzone config -->
+    <script src="../js/dropzone_config.js" type='text/javascript'></script>
+</body>
+
+</html>

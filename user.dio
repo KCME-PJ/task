@@ -1,0 +1,85 @@
+<mxfile host="65bd71144e">
+    <diagram id="6zI4t15aGjuqJ2fFNbX5" name="signup処理">
+        <mxGraphModel dx="1128" dy="790" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="96" value="" style="rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="97" target="107">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="309" y="110" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="97" value="users_signup" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="1">
+                    <mxGeometry x="279" y="20" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="110" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="107" target="109">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="107" value="form_input&lt;br&gt;signup.html" style="shape=manualInput;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="299" y="100" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="109" value="POSTデータ受け取り&lt;br&gt;ユーザー重複問い合わせ&lt;br&gt;signup_post.php" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+                    <mxGeometry x="249" y="230" width="180" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="119" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="109" target="117">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="429" y="263" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="123" style="edgeStyle=none;html=1;entryX=0;entryY=0;entryDx=66.25;entryDy=60;entryPerimeter=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="109" target="122">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="260" y="300" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="294" y="333"/>
+                            <mxPoint x="96" y="333"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="124" value="email重複あり" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="123">
+                    <mxGeometry x="-0.0863" y="-1" relative="1" as="geometry">
+                        <mxPoint x="-17" y="-9" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="126" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="109" target="125">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="330" y="310" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="127" value="email重複なし" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rotation=0;" vertex="1" connectable="0" parent="126">
+                    <mxGeometry x="-0.3111" y="-1" relative="1" as="geometry">
+                        <mxPoint x="1" y="9" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="120" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="117" target="109">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="410" y="305" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="599" y="333"/>
+                            <mxPoint x="384" y="333"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="121" value="check結果" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="120">
+                    <mxGeometry x="-0.3778" y="-1" relative="1" as="geometry">
+                        <mxPoint x="-37" y="-9" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="117" value="email address&lt;br&gt;チェック&lt;br&gt;duplicate_check.php" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="519" y="215" width="160" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="122" value="email重複エラー表示&lt;br&gt;duplicate_err_msg.html" style="shape=display;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="233" width="130" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="130" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="125" target="129">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="125" value="ユーザー登録処理&lt;br&gt;user_add.php" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+                    <mxGeometry x="249" y="370" width="180" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="129" value="ユーザー登録完了表示&lt;br&gt;signup_ok-msg.html" style="shape=display;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="534" y="370" width="130" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
