@@ -16,37 +16,34 @@
 
 </head>
 <?php
-    require_once './common/database.php';
-    session_start();
-    if (!isset($_SESSION['join'])) {
-        header('Location: ./users/login.html');
-        exit();
-    }
-    require_once './functions/session_user_select.php';
-    $mail = $_SESSION['join'];
-    $user_n = user_select($mail);
+require_once './common/database.php';
+session_start();
+if (!isset($_SESSION['join'])) {
+    header('Location: ./users/login.html');
+    exit();
+}
+require_once './functions/session_user_select.php';
+$mail = $_SESSION['join'];
+$user_n = user_select($mail);
 ?>
 
 <body>
     <!-- top navigation bar start -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar"
-                aria-controls="offcanvasExample">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="offcanvasExample">
                 <span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
             </button>
             <a class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold" href="#">anzen</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavBar"
-                aria-controls="topNavBar" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavBar" aria-controls="topNavBar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="topNavBar">
 
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle ms-2" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="bi bi-person-fill"></i>　<?php echo $user_n['f_name']." ". $user_n['l_name']; ?>さん
+                        <a class="nav-link dropdown-toggle ms-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-fill"></i>　<?php echo $user_n['f_name'] . " " . $user_n['l_name']; ?>さん
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="./users/logout.php">Logout</a></li>
@@ -195,30 +192,30 @@
                 SQL;
                 $stmt = $dbh->query($sql);
                 foreach ($stmt as $row) {
-                $res = $row['count_p'];
-                $rid = $row['t_priority_id'];
-                if ($rid == "1") {
-                    $card = "border-danger";
-                    $title = "text-danger";
-                    $pri ="優先度:高";
-                    $bt = "btn-outline-danger";
-                    $footer = "bg-danger text-white";
-                }
-                if ($rid == "2") {
-                    $card = "border-warning text-dark";
-                    $title = "";
-                    $pri ="優先度:中";
-                    $bt = "btn-outline-warning";
-                    $footer = "bg-warning";
-                }
-                if ($rid == "3") {
-                    $card = "border-primary";
-                    $title = "text-primary";
-                    $pri ="優先度:低";
-                    $bt = "btn-outline-primary";
-                    $footer = "bg-primary text-white";
-                }
-                print <<<EOD
+                    $res = $row['count_p'];
+                    $rid = $row['t_priority_id'];
+                    if ($rid == "1") {
+                        $card = "border-danger";
+                        $title = "text-danger";
+                        $pri = "優先度:高";
+                        $bt = "btn-outline-danger";
+                        $footer = "bg-danger text-white";
+                    }
+                    if ($rid == "2") {
+                        $card = "border-warning text-dark";
+                        $title = "";
+                        $pri = "優先度:中";
+                        $bt = "btn-outline-warning";
+                        $footer = "bg-warning";
+                    }
+                    if ($rid == "3") {
+                        $card = "border-primary";
+                        $title = "text-primary";
+                        $pri = "優先度:低";
+                        $bt = "btn-outline-primary";
+                        $footer = "bg-primary text-white";
+                    }
+                    print <<<EOD
                 <div class="col-md-4 mb-3">
                     <div class="card $card h-100">
                         <div class="card-body">
